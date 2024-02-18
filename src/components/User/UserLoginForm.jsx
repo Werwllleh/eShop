@@ -4,7 +4,7 @@ import { loginUser } from "../../features/user/userSlice";
 
 import styles from "../../styles/User.module.css";
 
-const UserSignupForm = ({ toggleCurrentFormType, closeForm }) => {
+const UserSignupForm = ({ toggleCurrentFormType, closeForm, open}) => {
   const dispatch = useDispatch();
   const [values, setValues] = useState({
     email: "",
@@ -27,7 +27,7 @@ const UserSignupForm = ({ toggleCurrentFormType, closeForm }) => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={open ? `${styles.wrapper} ${styles.wrapperShow}` : styles.wrapper}>
       <div className={styles.close} onClick={closeForm}>
         <svg className="icon">
           <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#close`} />

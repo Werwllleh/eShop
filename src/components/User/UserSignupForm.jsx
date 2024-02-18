@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createUser } from "../../features/user/userSlice";
+import React, {useState} from "react";
+import {useDispatch} from "react-redux";
+import {createUser} from "../../features/user/userSlice";
 
 import styles from "../../styles/User.module.css";
 
-const UserSignupForm = ({ toggleCurrentFormType, closeForm }) => {
+const UserSignupForm = ({toggleCurrentFormType, closeForm, open}) => {
+
   const dispatch = useDispatch();
   const [values, setValues] = useState({
     name: "",
@@ -13,8 +14,8 @@ const UserSignupForm = ({ toggleCurrentFormType, closeForm }) => {
     avatar: "",
   });
 
-  const handleChange = ({ target: { value, name } }) => {
-    setValues({ ...values, [name]: value });
+  const handleChange = ({target: {value, name}}) => {
+    setValues({...values, [name]: value});
   };
 
   const handleSubmit = (e) => {
@@ -29,15 +30,13 @@ const UserSignupForm = ({ toggleCurrentFormType, closeForm }) => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={open ? `${styles.wrapper} ${styles.wrapperShow}` : styles.wrapper}>
       <div className={styles.close} onClick={closeForm}>
         <svg className="icon">
-          <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#close`} />
+          <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#close`}/>
         </svg>
       </div>
-
       <div className={styles.title}>Sign Up</div>
-
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.group}>
           <input

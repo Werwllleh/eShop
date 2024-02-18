@@ -4,19 +4,35 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(33, 33, 35, 0.8);
+  background: rgba(33, 33, 35, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition), visibility var(--transition);
   z-index: 98;
+}
+
+.overlayShow {
+  opacity: 1;
+  visibility: visible;
 }
 
 .wrapper {
   position: fixed;
+  transform: translateX(999%);
   top: 0;
   right: 0;
+  bottom: 0;
+  margin: auto 0;
   background: var(--dark);
   width: 320px;
   height: 100vh;
   z-index: 99;
   padding: 24px;
+  transition: transform var(--transition);
+}
+
+.wrapperShow {
+  transform: translateX(0);
 }
 
 .title {
@@ -37,10 +53,17 @@
 
 .group input {
   width: 100%;
+  border: 1px solid transparent;
   background: #212123;
   border-radius: 8px;
   color: var(--light);
   padding: 12px 24px;
+  transition: border var(--transition);
+}
+
+.group input:hover,
+.group input:focus {
+  border: 1px solid #616e74;
 }
 
 .submit {
@@ -60,6 +83,7 @@
   width: 20px;
   height: 20px;
   stroke: var(--dark-sea);
+  transition: stroke var(--transition);
 }
 
 .close:hover svg {
@@ -71,6 +95,7 @@
   color: var(--dark-sea);
   cursor: pointer;
   text-align: center;
+  transition: color var(--transition);
 }
 
 .link:hover {

@@ -1,14 +1,14 @@
 body {
-  background: var(--bg);
-  font-size: 16px;
-  line-height: 16px;
-  font-family: Montserrat, Roboto, sans-serif;
-  padding: 0;
-  margin: 0;
-  overflow-x: hidden;
-  color: #fff;
-  font-weight: 500;
-  padding-bottom: 20px;
+    background: var(--bg);
+    font-size: 16px;
+    line-height: 1.1;
+    font-family: Montserrat, Roboto, sans-serif;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    color: #fff;
+    font-weight: 500;
+    height: 100%;
 }
 
 h1,
@@ -18,112 +18,140 @@ h4,
 h5,
 h6,
 p {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  line-height: 24px;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 input,
 button {
-  border: none;
-  background: none;
-  outline: none;
-  color: #fff;
-  font-size: 16px;
-  font-family: Montserrat, Roboto, sans-serif;
+    border: none;
+    background: inherit;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+    font-family: Montserrat, Roboto, sans-serif;
+    transition: background var(--transition);
+}
+
+button:hover {
+
 }
 
 a {
-  color: #fff;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+a:hover {
 }
 
 ul,
 li {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#root {
+
 }
 
 .app {
-  width: 1274px;
-  margin: 0 auto;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 24px;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .flex {
-  display: flex;
+    display: flex;
 }
 
 .flex-center {
-  align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .icon {
-  width: 12px;
-  height: 12px;
+    width: 12px;
+    height: 12px;
 }
 
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+    max-width: 1290px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 section {
-  background: var(--dark);
-  border-radius: 6px;
+    background: var(--dark);
+    border-radius: 6px;
 }
 
 button {
-  background: var(--violet-dark);
-  border-radius: 6px;
-  padding: 9px 20px;
-  font-weight: 600;
-  line-height: 20px;
-  cursor: pointer;
+    background: var(--violet-dark);
+    border-radius: 6px;
+    padding: 9px 20px;
+    font-weight: 600;
+    line-height: 20px;
+    cursor: pointer;
 }
 
 button:hover {
-  background: var(--violet);
+    background: var(--violet);
 }
 
 h2 {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
-  text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  /* display: none; <- Crashes Chrome on hover */
-  -webkit-appearance: none;
-  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
 input[type="number"] {
-  -moz-appearance: textfield; /* Firefox */
+    -moz-appearance: textfield; /* Firefox */
 }
 
 input {
-  padding: 0;
+    padding: 0;
 }
 
 .preloader {
-  flex-grow: 1;
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    flex-grow: 1;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

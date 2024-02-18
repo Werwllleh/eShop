@@ -1,19 +1,33 @@
 .header {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 25px 20px;
+  padding: 15px 20px;
+  background: var(--dark);
 }
 
-.logo {
-  width: 304px;
-}
-
-.info {
+.headerBody {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-grow: 1;
+  gap: 40px;
+}
+
+.logo {
+
+}
+
+.logo a {
+  display: flex;
+}
+
+.logo img {
+  width: 100px;
+}
+
+.info {
+  flex: 0 1 600px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
 }
 
 .user {
@@ -34,8 +48,8 @@
 }
 
 .username {
-  font-size: 10px;
-  line-height: 12px;
+  font-size: 16px;
+  line-height: 1;
   color: var(--grey);
 }
 
@@ -43,17 +57,19 @@
   display: flex;
   align-items: center;
   background: var(--dark);
-  border-radius: 6px;
-  height: 27px;
-  padding: 7px 10px;
-  column-gap: 16px;
-  width: 300px;
   position: relative;
+  max-width: 400px;
+  width: 100%;
 }
 
 .icon {
-  width: 13px;
-  height: 13px;
+  position: absolute;
+  top: 0;
+  left: 7px;
+  bottom: 0;
+  margin: auto 0;
+  width: 17px;
+  height: 17px;
 }
 
 .icon svg {
@@ -63,23 +79,37 @@
 }
 
 .input {
-  flex-grow: 1;
+  width: 100%;
 }
 
 .input input {
-  font-family: Montserrat, Roboto, sans-serif;
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 15px;
+  line-height: 1;
   color: var(--grey);
   background: none;
   outline: none;
   width: 100%;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  max-height: 40px;
+  height: 100%;
+  padding: 7px 10px 7px 30px;
+  transition: border var(--transition);
+}
+
+.input input:hover,
+.input input:focus {
+  border: 1px solid #616e74;
 }
 
 .account {
   display: flex;
   align-items: center;
   column-gap: 20px;
+}
+
+.account svg {
+  transition: stroke var(--transition), fill var(--transition);
 }
 
 .favourites {

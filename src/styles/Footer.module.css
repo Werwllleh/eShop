@@ -2,12 +2,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
-  padding: 24px;
+  margin: auto 0 0 0;
+  padding: 20px;
 }
 
 .logo {
-  width: 61px;
+  width: 100px;
 }
 
 .logo a {
@@ -16,8 +16,8 @@
 
 .rights {
   color: var(--dark-sea);
-  font-size: 12px;
-  line-height: 15px;
+  font-size: 14px;
+  line-height: 1.1;
 }
 
 .rights a {
@@ -30,9 +30,10 @@
 }
 
 .socials svg {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   fill: var(--dark-sea);
+  transition: fill var(--transition);
 }
 
 .socials svg:hover {

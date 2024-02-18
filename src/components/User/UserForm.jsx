@@ -14,23 +14,23 @@ const UserForm = () => {
   const closeForm = () => dispatch(toggleForm(false));
   const toggleCurrentFormType = (type) => dispatch(toggleFormType(type));
 
-  return showForm ? (
+  return  (
     <>
-      <div className={styles.overlay} onClick={closeForm} />
+      <div className={showForm ? `${styles.overlay} ${styles.overlayShow}` : styles.overlay} onClick={closeForm} />
       {formType === "signup" ? (
         <UserSignupForm
+          open={showForm}
           toggleCurrentFormType={toggleCurrentFormType}
           closeForm={closeForm}
         />
       ) : (
         <UserLoginForm
+          open={showForm}
           toggleCurrentFormType={toggleCurrentFormType}
           closeForm={closeForm}
         />
       )}
     </>
-  ) : (
-    <></>
   );
 };
 
