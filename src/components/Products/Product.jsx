@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import styles from "../../styles/Product.module.css";
 import {ROUTES} from "../../utils/routes";
-import {addItemToCart} from "../../features/user/userSlice";
+import {addItemToCart, toggleForm} from "../../services/user/userSlice";
 
 const SIZES = [4, 4.5, 5]
 
@@ -12,6 +12,7 @@ const Product = (item) => {
     const {title, price, images, description} = item;
 
     const dispatch = useDispatch();
+    const { currentUser } = useSelector(({ user }) => user);
 
     const [currentImage, setCurrentImage] = useState();
     const [currentSize, setCurrentSize] = useState();
@@ -23,7 +24,11 @@ const Product = (item) => {
     }, [images]);
 
     const addToCart = () => {
-        dispatch(addItemToCart(item));
+        if (currentUser) {
+            dispatch(addItemToCart(item));
+        } else {
+            dispatch(toggleForm(true))
+        }
     };
 
     return (

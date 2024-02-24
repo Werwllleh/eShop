@@ -1,10 +1,8 @@
 import React from 'react';
 import styles from "../../styles/Home.module.css";
-import BG from '../../images/computer.png';
+import BG from '../../assets/images/computer.png';
 
 const Poster = () => {
-
-  console.log('here')
 
     return (
         <section className={styles.home}>

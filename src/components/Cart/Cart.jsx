@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addItemToCart,
   removeItemFromCart,
-} from "../../features/user/userSlice";
+} from "../../services/user/userSlice";
 
 import styles from "../../styles/Cart.module.css";
 import { sumBy } from "../../utils/common";
@@ -25,7 +25,7 @@ const Cart = () => {
       <h2 className={styles.title}>Your cart</h2>
 
       {!cart.length ? (
-        <div className={styles.empty}>Here is empty</div>
+        <div className={styles.empty}>Здесь пока пусто</div>
       ) : (
         <>
           <div className={styles.list}>

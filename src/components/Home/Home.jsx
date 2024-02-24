@@ -4,7 +4,7 @@ import Products from "../Products/Products";
 import Categories from "../Categories/Categories";
 import {useDispatch, useSelector} from "react-redux";
 import Banner from "../Banner/Banner";
-import {filterByPrice} from "../../features/products/productSlice";
+import {filterByPrice} from "../../services/products/productSlice";
 
 const Home = () => {
 

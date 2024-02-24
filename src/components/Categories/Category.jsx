@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { useGetProductsQuery } from "../../features/api/apiSlice";
+import { useGetProductsQuery } from "../../services/api/apiSlice";
 
 import styles from "../../styles/Category.module.css";
 

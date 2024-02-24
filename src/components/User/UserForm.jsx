@@ -5,7 +5,7 @@ import UserSignupForm from "./UserSignupForm";
 import UserLoginForm from "./UserLoginForm";
 
 import styles from "../../styles/User.module.css";
-import { toggleForm, toggleFormType } from "../../features/user/userSlice";
+import { toggleForm, toggleFormType } from "../../services/user/userSlice";
 
 const UserForm = () => {
   const dispatch = useDispatch();

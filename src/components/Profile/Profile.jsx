@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { updateUser } from "../../features/user/userSlice";
+import { updateUser } from "../../services/user/userSlice";
 
 import styles from "../../styles/Profile.module.css";
 

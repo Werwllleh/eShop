@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
 import styles from "../../styles/Header.module.css";
-
 import { ROUTES } from "../../utils/routes";
-
-import LOGO from "../../images/logo.svg";
-import AVATAR from "../../images/avatar.svg";
-
-import { toggleForm } from "../../features/user/userSlice";
-import { useGetProductsQuery } from "../../features/api/apiSlice";
+import LOGO from "../../assets/images/logo.svg";
+import AVATAR from "../../assets/images/avatar.svg";
+import { toggleForm } from "../../services/user/userSlice";
+import { useGetProductsQuery } from "../../services/api/apiSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -18,14 +14,11 @@ const Header = () => {
 
   const [searchValue, setSearchValue] = useState("");
   const { currentUser, cart } = useSelector(({ user }) => user);
-
   const [values, setValues] = useState({ name: "Гость", avatar: AVATAR });
-
   const { data, isLoading } = useGetProductsQuery({ title: searchValue });
 
   useEffect(() => {
     if (!currentUser) return;
-
     setValues(currentUser);
   }, [currentUser]);
 

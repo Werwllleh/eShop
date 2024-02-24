@@ -4,14 +4,17 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Sidebar from "../Sidebar/Sidebar";
 import {useDispatch} from "react-redux";
-import {getCategories} from "../../features/categories/categoriesSlice";
-import {getProducts} from "../../features/products/productSlice";
+import {getCategories} from "../../services/categories/categoriesSlice";
+import {getProducts} from "../../services/products/productSlice";
 import UserForm from "../User/UserForm";
+import {checkUser} from "../../services/user/userSlice";
+
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(checkUser())
     dispatch(getCategories())
     dispatch(getProducts())
   }, [dispatch]);

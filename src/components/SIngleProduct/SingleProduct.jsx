@@ -1,17 +1,17 @@
 import React, {useEffect} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
-import {useGetProductQuery} from "../../features/api/apiSlice";
+import {useGetProductQuery} from "../../services/api/apiSlice";
 import {ROUTES} from "../../utils/routes";
 import Products from "../Products/Products";
 import Product from "../Products/Product";
 import {useDispatch, useSelector} from "react-redux";
-import {getRelatedProducts} from "../../features/products/productSlice";
+import {getRelatedProducts} from "../../services/products/productSlice";
 
 const SingleProduct = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
     const navigate = useNavigate();
-    const {list, related} = useSelector(({products}) => products)
+    const {list} = useSelector(({products}) => products)
 
     const {data, isLoading, isFetching, isSuccess} = useGetProductQuery({id});
 
@@ -19,7 +19,7 @@ const SingleProduct = () => {
         if (!isLoading && !isFetching && !isSuccess) {
             navigate(ROUTES.HOME)
         }
-    }, [isLoading, isFetching, isSuccess]);
+    }, [isLoading, isFetching, isSuccess, navigate]);
 
     useEffect(() => {
         if (!data || !list.length) return;
