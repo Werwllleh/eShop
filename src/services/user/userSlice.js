@@ -7,6 +7,11 @@ export const createUser = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const res = await axios.post(`${BASE_URL}/users`, payload);
+      if (!localStorage.getItem("accessToken") || !localStorage.getItem("refreshToken")) {
+        const authData = await axios.post(`${BASE_URL}/auth/login`, payload);
+        localStorage.setItem("refreshToken", authData.data.refresh_token);
+        localStorage.setItem("accessToken", authData.data.access_token);
+      }
       return res.data;
     } catch (err) {
       console.log(err);
@@ -39,7 +44,7 @@ export const loginUser = createAsyncThunk(
 
 export const checkUser = createAsyncThunk(
   "users/checkUser",
-  async (payload, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       if (localStorage.getItem("accessToken") && localStorage.getItem("accessToken") !== "undefined") {
         const res = await axios.get(`${BASE_URL}/auth/profile`, {
@@ -50,7 +55,22 @@ export const checkUser = createAsyncThunk(
         return res.data;
       }
     } catch (err) {
-      console.log(err);
+      if (localStorage.getItem("refreshToken") && localStorage.getItem("refreshToken") !== "undefined") {
+
+        try {
+          const refreshToken = localStorage.getItem("refreshToken");
+
+          const res = await axios.post(`${BASE_URL}/auth/refresh-token`, {
+            refreshToken: refreshToken,
+          });
+
+          localStorage.setItem("refreshToken", res.data.refresh_token);
+          localStorage.setItem("accessToken", res.data.access_token);
+
+        } catch (refreshError) {
+          return thunkAPI.rejectWithValue(refreshError);
+        }
+      }
       return thunkAPI.rejectWithValue(err);
     }
   }
